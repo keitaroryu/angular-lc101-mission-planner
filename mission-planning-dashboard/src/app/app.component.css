@@ -1,0 +1,25 @@
+*{
+    color: white;
+}
+.box {
+    display:flex;
+    padding: 10px;
+}
+
+app-crew {
+    border: 2px solid blue;
+    padding: 10px;
+    background-color: black;
+}
+
+app-equipment {
+    border: 2px solid blue;
+    padding: 10px;
+    background-color: black;
+}
+
+app-experiments {
+    border: 2px solid blue;
+    padding: 10px;
+    background-color: black;
+}
