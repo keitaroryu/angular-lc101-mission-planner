@@ -1,0 +1,10 @@
+.errorMsg {
+    color: red;
+    word-wrap: break-word;
+    width: 250px;
+}
+
+.remove {
+    margin-left: 15px;
+}
+

@@ -18,8 +18,26 @@ export class CrewComponent implements OnInit {
   ngOnInit() {
   }
 
+  duplicateName(newName: string) {
+    let duplicateName = false;
+    for (let i=0; i<this.crew.length; i++) {
+      if (this.crew[i]['name']===newName) {
+        duplicateName = true;
+      }
+    }
+    return duplicateName;
+  }
+
   add(memberName: string, isFirst: boolean) {
-    this.crew.push({name: memberName, firstMission: isFirst});
+    let errorMsg = '';
+    
+    if (!this.duplicateName(memberName)){
+      this.crew.push({name: memberName, firstMission: isFirst});
+    }else {
+      errorMsg = "Crew member already listed. Enter a different Crew member.";
+    }
+
+    return errorMsg;
   }
 
   remove(member: object) {
@@ -32,8 +50,16 @@ export class CrewComponent implements OnInit {
   }
 
   save(name: string, member: object) {
-    member['name'] = name;
-    this.memberBeingEdited = null;
+    let errorMsg = '';
+
+    if (!this.duplicateName(name) || member['name'] === name){
+      member['name'] = name;
+      this.memberBeingEdited = null;
+    }else {
+      errorMsg = "Crew member already listed. Enter a different Crew member.";
+    }
+
+    return errorMsg;
   }
 
 }
