@@ -22,3 +22,7 @@ h3 {
 .selected {
     color: teal;
 }
+
+* {
+    color:white;
+}

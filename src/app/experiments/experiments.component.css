@@ -6,3 +6,30 @@
 h3 {
     text-align: center;
 }
+
+* {
+    color: white;
+}
+
+button {
+    margin: 2px;
+    cursor: pointer;
+    color: black;
+}
+
+.addExperimentButton{
+    background-color: gold;
+}
+
+.disabled {
+    background-color: grey;
+}
+
+.removeExperimentButton{
+    background-color:firebrick;
+}
+
+.clearExperimentsButton {
+    background-color: white;
+    color: black;
+}

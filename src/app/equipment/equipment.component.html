@@ -2,7 +2,10 @@
     <h3>Equipment</h3>
     <ol>
         <li *ngFor="let item of equipmentItems">
-            <button (click)="addItem(item)" [disabled]="disableAddCargoButton(item)" [class.ol-addCargoButton]="!disableAddCargoButton(item)">Add to Cargo Hold</button>
+            <button class="addCargoButton" *ngIf="!cargoHold.includes(item); else removeCargo" (click)="addItem(item)" [disabled]="disableAddCargoButton(item)" [class.disabled]="disableAddCargoButton(item)">Add to Cargo Hold</button>
+            <ng-template #removeCargo>
+                <button class="removeCargoButton" (click)="removeItem(item)">Remove from Hold</button>
+            </ng-template>
             {{item.name}}, {{item.mass}} kg
         </li>
     </ol>
@@ -17,6 +20,6 @@
     </ol>
     <p>Mass in Hold: {{cargoMass}} kg</p>
     <p [class.nearMaxMass]="remainingMass<=200">Mass Budget Remaining: {{remainingMass}} kg</p>
-    <button (click)="emptyHold()">Empty Hold</button>
+    <button class="emptyButton" (click)="emptyHold()">Empty Hold</button>
 </div>
 

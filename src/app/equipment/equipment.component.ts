@@ -34,15 +34,16 @@ export class EquipmentComponent implements OnInit {
     this.cargoHold.push(item);
     this.cargoMass += item['mass'];
     this.remainingMass -= item['mass'];
-    if(this.cargoMass > this.maximumAllowedMass){
-      return true;
-    } else {
-      return false;
-    }
+  }
+
+  removeItem(item: object){
+    this.cargoHold.splice(this.cargoHold.indexOf(item),1);
+    this.cargoMass -= item['mass'];
+    this.remainingMass += item['mass'];
   }
 
   disableAddCargoButton(item:object){
-    if(this.cargoHold.length===this.maxItems || (this.cargoMass + item['mass'])>this.maximumAllowedMass){
+    if(this.cargoHold.length===this.maxItems || (this.cargoMass + item['mass'])>this.maximumAllowedMass || this.cargoHold.includes(item)){
       return true;
     }
   }
