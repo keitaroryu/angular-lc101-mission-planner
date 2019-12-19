@@ -46,4 +46,10 @@ export class EquipmentComponent implements OnInit {
       return true;
     }
   }
+
+  emptyHold(){
+    this.cargoHold.splice(0,this.cargoHold.length);
+    this.cargoMass = 0;
+    this.remainingMass = this.maximumAllowedMass;
+  }
 }
